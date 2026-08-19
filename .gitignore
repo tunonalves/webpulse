@@ -1,27 +1,12 @@
-# Archives
-*.zip
-
-# Environment / secrets
 .env
-
-# Python
 __pycache__/
 *.py[cod]
-.venv/
-venv/
-
-# Logs and reports
 *.log
-**/logs/*
-!**/logs/.gitkeep
-**/reports/*
-!**/reports/.gitkeep
-
-# Playwright
-playwright-report/
-test-results/
-
-# Editors / OS
+logs/*
+!logs/.gitkeep
+reports/*
+!reports/.gitkeep
+.venv/
 .vscode/
 .idea/
 .DS_Store
