@@ -1,0 +1,101 @@
+services:
+  latecla:
+    build: .
+    image: web-load-test-playwright:1.5
+    container_name: web-load-test-latecla
+    profiles: ["latecla"]
+    restart: unless-stopped
+    shm_size: ${WORKER_SHM_SIZE:-256m}
+    cpus: ${WORKER_CPU_LIMIT:-1.25}
+    mem_limit: ${LATECLA_MEMORY_LIMIT:-1500m}
+    environment:
+      PORTAL_CONFIG: /app/config.yaml
+      USERS: ${LATECLA_USERS:-4}
+      BROWSER_HEADLESS: ${BROWSER_HEADLESS:-false}
+      BROWSER_SLOW_MO_MS: ${BROWSER_SLOW_MO_MS:-0}
+      LOG_DIR: /app/logs
+      REPORT_DIR: /app/reports
+    volumes:
+      - ./configs/latecla.yaml:/app/config.yaml:ro
+      - ./logs/latecla:/app/logs
+      - ./reports/latecla:/app/reports
+  mardelplata:
+    build: .
+    image: web-load-test-playwright:1.5
+    container_name: web-load-test-mardelplata
+    profiles: ["mardelplata"]
+    restart: unless-stopped
+    shm_size: ${WORKER_SHM_SIZE:-256m}
+    cpus: ${WORKER_CPU_LIMIT:-1.25}
+    mem_limit: ${WORKER_MEMORY_LIMIT:-1200m}
+    environment:
+      PORTAL_CONFIG: /app/config.yaml
+      USERS: ${MARDELPLATA_USERS:-2}
+      BROWSER_HEADLESS: ${BROWSER_HEADLESS:-false}
+      BROWSER_SLOW_MO_MS: ${BROWSER_SLOW_MO_MS:-0}
+      LOG_DIR: /app/logs
+      REPORT_DIR: /app/reports
+    volumes:
+      - ./configs/mardelplata.yaml:/app/config.yaml:ro
+      - ./logs/mardelplata:/app/logs
+      - ./reports/mardelplata:/app/reports
+  patagonia:
+    build: .
+    image: web-load-test-playwright:1.5
+    container_name: web-load-test-patagonia
+    profiles: ["patagonia"]
+    restart: unless-stopped
+    shm_size: ${WORKER_SHM_SIZE:-256m}
+    cpus: ${WORKER_CPU_LIMIT:-1.25}
+    mem_limit: ${WORKER_MEMORY_LIMIT:-1200m}
+    environment:
+      PORTAL_CONFIG: /app/config.yaml
+      USERS: ${PATAGONIA_USERS:-2}
+      BROWSER_HEADLESS: ${BROWSER_HEADLESS:-false}
+      BROWSER_SLOW_MO_MS: ${BROWSER_SLOW_MO_MS:-0}
+      LOG_DIR: /app/logs
+      REPORT_DIR: /app/reports
+    volumes:
+      - ./configs/patagonia.yaml:/app/config.yaml:ro
+      - ./logs/patagonia:/app/logs
+      - ./reports/patagonia:/app/reports
+  revistaque:
+    build: .
+    image: web-load-test-playwright:1.5
+    container_name: web-load-test-revistaque
+    profiles: ["revistaque"]
+    restart: unless-stopped
+    shm_size: ${WORKER_SHM_SIZE:-256m}
+    cpus: ${WORKER_CPU_LIMIT:-1.25}
+    mem_limit: ${WORKER_MEMORY_LIMIT:-1200m}
+    environment:
+      PORTAL_CONFIG: /app/config.yaml
+      USERS: ${REVISTAQUE_USERS:-2}
+      BROWSER_HEADLESS: ${BROWSER_HEADLESS:-false}
+      BROWSER_SLOW_MO_MS: ${BROWSER_SLOW_MO_MS:-0}
+      LOG_DIR: /app/logs
+      REPORT_DIR: /app/reports
+    volumes:
+      - ./configs/revistaque.yaml:/app/config.yaml:ro
+      - ./logs/revistaque:/app/logs
+      - ./reports/revistaque:/app/reports
+  cadenario:
+    build: .
+    image: web-load-test-playwright:1.5
+    container_name: web-load-test-cadenario
+    profiles: ["cadenario"]
+    restart: unless-stopped
+    shm_size: ${WORKER_SHM_SIZE:-256m}
+    cpus: ${WORKER_CPU_LIMIT:-1.25}
+    mem_limit: ${WORKER_MEMORY_LIMIT:-1200m}
+    environment:
+      PORTAL_CONFIG: /app/config.yaml
+      USERS: ${CADENARIO_USERS:-2}
+      BROWSER_HEADLESS: ${BROWSER_HEADLESS:-false}
+      BROWSER_SLOW_MO_MS: ${BROWSER_SLOW_MO_MS:-0}
+      LOG_DIR: /app/logs
+      REPORT_DIR: /app/reports
+    volumes:
+      - ./configs/cadenario.yaml:/app/config.yaml:ro
+      - ./logs/cadenario:/app/logs
+      - ./reports/cadenario:/app/reports

@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.py[cod]
+*.log
+logs/*
+!logs/.gitkeep
+reports/*
+!reports/.gitkeep
+.venv/
+.vscode/
+.idea/
+.DS_Store
