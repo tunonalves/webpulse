@@ -1,0 +1,41 @@
+name: La Tecla
+base_url: https://latecla.info/
+users: 1
+sections:
+  inicio: /
+browser:
+  headless: true
+  slow_mo_ms: 0
+  locale: es-AR
+  timezone_id: America/Argentina/Buenos_Aires
+  block_resource_types:
+  - image
+  - media
+  - font
+navigation:
+  timeout_ms: 30000
+  user_start_stagger_seconds: 8.0
+  section_content_wait_seconds: 0.0
+selection:
+  fixed_count: 5
+  random_count: 5
+reading:
+  min_wait_seconds: 2.5
+  max_wait_seconds: 5.0
+  scroll_steps_min: 2
+  scroll_steps_max: 5
+session:
+  min_restart_wait_seconds: 30
+  max_restart_wait_seconds: 60
+retention:
+  max_age_days: 7
+discovery:
+  skip_path_contains:
+  - /tag/
+  - /autor/
+  - /author/
+  - /categoria/
+  - /category/
+  - /contacto
+  - /terminos
+  - /privacidad
